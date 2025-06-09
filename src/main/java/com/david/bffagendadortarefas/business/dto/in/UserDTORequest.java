@@ -1,4 +1,4 @@
-package com.david.bffagendadortarefas.business.dto;
+package com.david.bffagendadortarefas.business.dto.in;
 
 import lombok.*;
 
@@ -9,11 +9,11 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class UserDTO {
+public class UserDTORequest {
 
     private String name;
     private String email;
     private String password;
-    private List<AddressDTO> address;
-    private List<PhoneDTO> phone;
+    private List<AddressDTORequest> address;
+    private List<PhoneDTORequest> phone;
 }

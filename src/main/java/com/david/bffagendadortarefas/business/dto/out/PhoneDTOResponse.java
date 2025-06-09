@@ -1,4 +1,4 @@
-package com.david.bffagendadortarefas.business.dto;
+package com.david.bffagendadortarefas.business.dto.out;
 
 import lombok.*;
 
@@ -7,7 +7,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class PhoneDTO {
+public class PhoneDTOResponse {
 
     private Long id;
     private String number;

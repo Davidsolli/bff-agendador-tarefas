@@ -1,8 +1,12 @@
 package com.david.bffagendadortarefas.business;
 
-import com.david.bffagendadortarefas.business.dto.AddressDTO;
-import com.david.bffagendadortarefas.business.dto.PhoneDTO;
-import com.david.bffagendadortarefas.business.dto.UserDTO;
+import com.david.bffagendadortarefas.business.dto.in.AddressDTORequest;
+import com.david.bffagendadortarefas.business.dto.in.LoginRequest;
+import com.david.bffagendadortarefas.business.dto.in.PhoneDTORequest;
+import com.david.bffagendadortarefas.business.dto.in.UserDTORequest;
+import com.david.bffagendadortarefas.business.dto.out.AddressDTOResponse;
+import com.david.bffagendadortarefas.business.dto.out.PhoneDTOResponse;
+import com.david.bffagendadortarefas.business.dto.out.UserDTOResponse;
 import com.david.bffagendadortarefas.infrastructure.client.UserClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,15 +17,15 @@ public class UserService {
 
     private final UserClient userClient;
 
-    public UserDTO createUser(UserDTO userDTO) {
-        return userClient.createUser(userDTO);
+    public UserDTOResponse createUser(UserDTORequest userDTORequest) {
+        return userClient.createUser(userDTORequest);
     }
 
-    public String userLogin(UserDTO userDTO) {
-        return userClient.login(userDTO);
+    public String userLogin(LoginRequest userDTORequest) {
+        return userClient.login(userDTORequest);
     }
 
-    public UserDTO findUserByEmail(String email, String token) {
+    public UserDTOResponse findUserByEmail(String email, String token) {
         return userClient.findByEmail(email, token);
     }
 
@@ -29,23 +33,23 @@ public class UserService {
         userClient.deleteUserByEmail(email, token);
     }
 
-    public UserDTO updateUserData(String token, UserDTO userDTO) {
-        return userClient.updateUserData(userDTO, token);
+    public UserDTOResponse updateUserData(String token, UserDTORequest userDTORequest) {
+        return userClient.updateUserData(userDTORequest, token);
     }
 
-    public AddressDTO updateAddress(Long addressId, AddressDTO addressDTO, String token) {
-        return userClient.updateAddress(addressDTO, addressId, token);
+    public AddressDTOResponse updateAddress(Long addressId, AddressDTORequest addressDTORequest, String token) {
+        return userClient.updateAddress(addressDTORequest, addressId, token);
     }
 
-    public PhoneDTO updatePhone(Long phoneId, PhoneDTO phoneDTO, String token) {
-        return userClient.updatePhone(phoneDTO, phoneId, token);
+    public PhoneDTOResponse updatePhone(Long phoneId, PhoneDTORequest phoneDTORequest, String token) {
+        return userClient.updatePhone(phoneDTORequest, phoneId, token);
     }
 
-    public AddressDTO newAddress(String token, AddressDTO addressDTO) {
-        return userClient.newAddress(token, addressDTO);
+    public AddressDTOResponse newAddress(String token, AddressDTORequest addressDTORequest) {
+        return userClient.newAddress(token, addressDTORequest);
     }
 
-    public PhoneDTO newPhone(String token, PhoneDTO phoneDTO) {
-        return userClient.newPhone(token, phoneDTO);
+    public PhoneDTOResponse newPhone(String token, PhoneDTORequest phoneDTORequest) {
+        return userClient.newPhone(token, phoneDTORequest);
     }
 }

@@ -1,4 +1,4 @@
-package com.david.bffagendadortarefas.business.dto;
+package com.david.bffagendadortarefas.business.dto.in;
 
 import lombok.*;
 
@@ -7,9 +7,8 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class AddressDTO {
+public class AddressDTORequest {
 
-    private Long id;
     private String street;
     private Long number;
     private String complement;
