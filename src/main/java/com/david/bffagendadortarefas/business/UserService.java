@@ -1,7 +1,7 @@
 package com.david.bffagendadortarefas.business;
 
 import com.david.bffagendadortarefas.business.dto.in.AddressDTORequest;
-import com.david.bffagendadortarefas.business.dto.in.LoginRequest;
+import com.david.bffagendadortarefas.business.dto.in.LoginRequestDTO;
 import com.david.bffagendadortarefas.business.dto.in.PhoneDTORequest;
 import com.david.bffagendadortarefas.business.dto.in.UserDTORequest;
 import com.david.bffagendadortarefas.business.dto.out.AddressDTOResponse;
@@ -21,7 +21,7 @@ public class UserService {
         return userClient.createUser(userDTORequest);
     }
 
-    public String userLogin(LoginRequest userDTORequest) {
+    public String userLogin(LoginRequestDTO userDTORequest) {
         return userClient.login(userDTORequest);
     }
 

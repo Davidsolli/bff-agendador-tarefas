@@ -1,7 +1,7 @@
 package com.david.bffagendadortarefas.infrastructure.client;
 
 import com.david.bffagendadortarefas.business.dto.in.AddressDTORequest;
-import com.david.bffagendadortarefas.business.dto.in.LoginRequest;
+import com.david.bffagendadortarefas.business.dto.in.LoginRequestDTO;
 import com.david.bffagendadortarefas.business.dto.in.PhoneDTORequest;
 import com.david.bffagendadortarefas.business.dto.in.UserDTORequest;
 import com.david.bffagendadortarefas.business.dto.out.AddressDTOResponse;
@@ -20,7 +20,7 @@ public interface UserClient {
     UserDTOResponse createUser(@RequestBody UserDTORequest userDTORequest);
 
     @PostMapping("/login")
-    String login(@RequestBody LoginRequest userDTORequest);
+    String login(@RequestBody LoginRequestDTO userDTORequest);
 
     @DeleteMapping("/{email}")
     void deleteUserByEmail(@PathVariable String email, @RequestHeader("Authorization") String token);

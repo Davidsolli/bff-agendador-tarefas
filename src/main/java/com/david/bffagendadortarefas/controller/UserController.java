@@ -2,7 +2,7 @@ package com.david.bffagendadortarefas.controller;
 
 import com.david.bffagendadortarefas.business.UserService;
 import com.david.bffagendadortarefas.business.dto.in.AddressDTORequest;
-import com.david.bffagendadortarefas.business.dto.in.LoginRequest;
+import com.david.bffagendadortarefas.business.dto.in.LoginRequestDTO;
 import com.david.bffagendadortarefas.business.dto.in.PhoneDTORequest;
 import com.david.bffagendadortarefas.business.dto.in.UserDTORequest;
 import com.david.bffagendadortarefas.business.dto.out.AddressDTOResponse;
@@ -40,7 +40,7 @@ public class UserController {
     @ApiResponse(responseCode = "200", description = "Usuário logado")
     @ApiResponse(responseCode = "401", description = "Credenciais inválidas")
     @ApiResponse(responseCode = "500", description = "Erro no servidor")
-    public String login(@RequestBody LoginRequest userDTORequest) {
+    public String login(@RequestBody LoginRequestDTO userDTORequest) {
         return userService.userLogin(userDTORequest);
     }
 
