@@ -7,6 +7,7 @@ import com.david.bffagendadortarefas.business.dto.in.UserDTORequest;
 import com.david.bffagendadortarefas.business.dto.out.AddressDTOResponse;
 import com.david.bffagendadortarefas.business.dto.out.PhoneDTOResponse;
 import com.david.bffagendadortarefas.business.dto.out.UserDTOResponse;
+import com.david.bffagendadortarefas.business.dto.out.ViaCepDTOResponse;
 import com.david.bffagendadortarefas.infrastructure.client.UserClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -51,5 +52,9 @@ public class UserService {
 
     public PhoneDTOResponse newPhone(String token, PhoneDTORequest phoneDTORequest) {
         return userClient.newPhone(token, phoneDTORequest);
+    }
+
+    public ViaCepDTOResponse findAddressData(String cep) {
+        return userClient.findAddressData(cep);
     }
 }

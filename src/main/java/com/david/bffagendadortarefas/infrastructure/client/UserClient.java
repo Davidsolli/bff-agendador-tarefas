@@ -7,6 +7,7 @@ import com.david.bffagendadortarefas.business.dto.in.UserDTORequest;
 import com.david.bffagendadortarefas.business.dto.out.AddressDTOResponse;
 import com.david.bffagendadortarefas.business.dto.out.PhoneDTOResponse;
 import com.david.bffagendadortarefas.business.dto.out.UserDTOResponse;
+import com.david.bffagendadortarefas.business.dto.out.ViaCepDTOResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
@@ -53,4 +54,7 @@ public interface UserClient {
             @RequestHeader("Authorization") String token,
             @RequestBody PhoneDTORequest phoneDTORequest
     );
+
+    @GetMapping("/address/{cep}")
+    ViaCepDTOResponse findAddressData(@PathVariable("cep") String cep);
 }
