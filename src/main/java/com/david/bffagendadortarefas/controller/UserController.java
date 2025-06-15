@@ -8,6 +8,7 @@ import com.david.bffagendadortarefas.business.dto.in.UserDTORequest;
 import com.david.bffagendadortarefas.business.dto.out.AddressDTOResponse;
 import com.david.bffagendadortarefas.business.dto.out.PhoneDTOResponse;
 import com.david.bffagendadortarefas.business.dto.out.UserDTOResponse;
+import com.david.bffagendadortarefas.business.dto.out.ViaCepDTOResponse;
 import com.david.bffagendadortarefas.infrastructure.security.SecurityConfig;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -136,5 +137,14 @@ public class UserController {
             @RequestBody PhoneDTORequest phoneDTORequest
     ) {
         return ResponseEntity.ok(userService.newPhone(token, phoneDTORequest));
+    }
+
+    @GetMapping("address/{cep}")
+    @Operation(summary = "buscar dados do endereço pelo cep", description = "busca dados de endereço pelo cep")
+    @ApiResponse(responseCode = "200", description = "Dados de endereço retornados com sucesso")
+    @ApiResponse(responseCode = "400", description = "Cep inválido")
+    @ApiResponse(responseCode = "500", description = "Erro no servidor")
+    public ResponseEntity<ViaCepDTOResponse> findAddressData(@PathVariable("cep") String cep) {
+        return ResponseEntity.ok(userService.findAddressData(cep));
     }
 }

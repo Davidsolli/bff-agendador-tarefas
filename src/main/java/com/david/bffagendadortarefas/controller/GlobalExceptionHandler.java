@@ -1,6 +1,7 @@
 package com.david.bffagendadortarefas.controller;
 
 import com.david.bffagendadortarefas.infrastructure.exceptions.ConflictException;
+import com.david.bffagendadortarefas.infrastructure.exceptions.IllegalArgumentException;
 import com.david.bffagendadortarefas.infrastructure.exceptions.ResourceNotFoundException;
 import com.david.bffagendadortarefas.infrastructure.exceptions.UnauthorizedException;
 import org.springframework.http.HttpStatus;
@@ -24,5 +25,10 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(UnauthorizedException.class)
     public ResponseEntity<String> handleUnauthorizedException(UnauthorizedException e) {
         return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
+    }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<String> handleIllegalArgumentException(IllegalArgumentException e) {
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
     }
 }
